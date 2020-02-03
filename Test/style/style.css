@@ -1,0 +1,120 @@
+/* The radiocontainer */
+* { 
+    margin:0; padding:0; 
+    box-sizing: border-box;
+}
+
+body{
+    background-color:BlanchedAlmond;
+    background-image:url(https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png);   
+}
+.radiocontainer {
+    background-color: #f1f1f1;
+    display: block;
+    position: relative;
+    padding: 10px 10px 10px 50px;
+    margin-bottom: 1px;
+    cursor: pointer;
+    font-size: 17px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    word-wrap: break-word;
+}
+
+/* Hide the browser's default radio button */
+.radiocontainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    height: 19px;
+    width: 19px;
+    background-color: #fff;
+    border-radius: 50%;
+    color: #000;
+    text-align: center;
+}
+.active{
+    background-color:#2196F3; 
+
+}
+
+.checkedlabel {
+    background-color: #4fe067;
+}
+
+/* On mouse-over, add a grey background color */
+.radiocontainer:hover input~.checkmark {
+    /*nothing*/
+}
+
+.radiocontainer:hover {
+    background-color: #ddd;
+}
+
+
+
+.checked{
+    display: block;
+}
+
+.w3-btn,
+.w3-button {
+    border: none;
+    display: block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.w3-btn,
+.w3-btn:link,
+.w3-btn:visited {
+    color: #FFFFFF;
+    background-color: #2196F3;
+    margin-top: 15px;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+.example-shadow-3 {
+    font-family: Arial;
+    background: white;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+.question {
+    font-size: large;
+}
+
+.title {
+    font-family: 'Lato', sans-serif;
+    font-size: 54px;
+    font-weight: 300;
+    margin: 0 0 20px;
+}
+.answerbutton{
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/*Результат*/
+
