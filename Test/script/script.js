@@ -90,6 +90,16 @@ const renderQuerstionBlock = (questions) => {
                 target.querySelector('.checkmark').classList.toggle('active'); 
             }
         }
+        if(target.classList.contains('checkmark')){
+            if(target.textContent === '✓'){
+               target.textContent = '';
+               target.classList.toggle('active');
+            }else{
+                target.textContent = '✓';
+                target.classList.toggle('active');  
+            }
+            
+        }
     };
     //Вывод результатов
     const result = (count,mistakeAnsw) => {
@@ -114,6 +124,7 @@ return resultBlock;
 
     const checkAnswer = () => {
         let mistakeAnsw = [];
+        let mistakes = 0;
         let count = 0;
         for (let index = 0; index < getQuestionBlock.length; index++) {
             let element = getQuestionBlock[index];
@@ -139,7 +150,8 @@ return resultBlock;
                 console.log(localStorage.getItem(`${qBlock.id}`));
                 count++;
             }else {
-                mistakeAnsw[index] = '<p><br/>'+ element.children[0].textContent + '<p/>';
+                mistakeAnsw[mistakes] = '<p><br/>'+ element.children[0].textContent + '<p/>';
+                mistakes++;
                 //console.log(element.children[0].textContent); 
             }
             radiocontainer = '';
