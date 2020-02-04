@@ -1,0 +1,196 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+body{
+   background: white;  
+}
+.hide{
+    display: none;
+}
+.car , .enemy{
+    width: 50px;
+    height: 100px;
+    background: transparent url('./image/player.png') center / cover no-repeat ;
+    position: absolute;
+    left: 125px;
+    bottom: 10px;
+    
+}
+
+.gameArea{
+    width: 300px;
+    height: 100%;
+    position: relative;
+    margin: auto;
+    background: #222;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.cityArea{  
+    width: 800px;
+    height: 100%;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    background: rgb(122, 119, 119);
+    z-index: 2;
+}
+.city{
+    width: 120px;
+    height: 300px;
+    background: transparent url('./image/landscape/house1.png') center / cover no-repeat ;
+    position: absolute;
+    left: 125px;
+    bottom: 10px;
+
+}
+
+.line{
+    position: absolute;
+    width: 10px;
+    height: 50px;
+    background: #fff;
+    left: 145px;
+}
+
+.start{
+    position: absolute;
+    padding: 2rem 0;
+    text-align: center;
+    z-index: 100;
+    cursor: pointer;
+    color: white; font-family: ‘Righteous’, cursive;
+    font-size: 65px;
+    font-weight: normal;
+    line-height: 60px;
+    margin: 10px 0 20px;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 0 rgb(107, 104, 104);
+    text-align: center; 
+    width: 100%;
+    margin-top: 28%;
+    transition: all 0.3s ease 0s;
+}
+.start:hover{
+    letter-spacing: 5px;
+    transition: all 0.3s ease 0s;
+    
+}
+
+.score , .changeVolum{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    font-weight: 500;
+    z-index: 100;
+    color: skyblue;
+}
+
+.exploision{
+    width: 100px;
+    height: 150px;
+    background: transparent url('./image/effects/exploision.gif') center / cover no-repeat ;
+    position: absolute;
+    left: 125px;
+    bottom: 10px;
+  
+}
+
+.changeVolum{
+    padding: 1rem;
+    width: 30px; 
+    height: 30px;
+    margin-right: 0;
+    margin-left: auto;   
+}
+.buttons{
+    position: absolute;
+    margin-top: 45%;
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+    
+}
+.buttons div{
+    margin-left: 40px;
+    margin-right: 40px;
+    border: none;
+    background: #404040;
+    color: #ffffff !important;
+    font-weight: 100;
+    text-transform: uppercase;
+    padding: 20px;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s; 
+    color: white; font-family: ‘Righteous’, cursive;
+    z-index: 100;
+    cursor: pointer;
+
+}
+
+.buttons div:hover{
+    cursor: pointer;
+    z-index: 100;
+    color: #404040 !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: #fff;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.3s ease 0s; 
+}
+
+
+.buttons div:focus{
+    background:rgb(46, 206, 25);
+    color: #404040 !important;
+    font-weight: 700 !important;
+    transform: translateY(4px);
+    z-index: 101;        
+ }
