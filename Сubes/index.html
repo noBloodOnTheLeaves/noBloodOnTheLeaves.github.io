@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="DnD, dangeon and dragons, roleplay, dice, roller, 3D, RPG, wargame"/>
+<meta name="description" content="Online 3D dice roller"/>
+<title>teal multiplayer 3d dice roller</title>
+
+
+<style type="text/css">@import "./login.css";</style>
+<style>
+#labelhelp {
+    font-size: 12pt;
+    padding: 5px 15px;
+    color: rgba(21, 26, 26, 0.5);
+    bottom: 150px;
+}
+.bottom_field {
+    position: absolute;
+    text-align: center;
+    bottom: 5px;
+    width: inherit;
+    padding: 0px;
+}
+.center_field {
+    position: absolute;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.center_field * {
+    position: relative;
+    font-family: Trebuchet MS;
+    
+}
+h1{
+    font-size: 15pt;
+
+    color: rgba(21, 26, 26, 0.5);
+    bottom: 160px;
+}
+::placeholder {
+    font-size: 12pt;
+}
+</style>
+</head>
+
+<body style="margin: 0; overflow: hidden">
+   
+
+    <div id="loginform" style="display: table; background-color: #f4f4f4; position: absolute; height: 100%; width: 100%;">
+    <div style="display: table-cell; vertical-align: middle">
+    <div style="margin-left: auto; margin-right: auto; width: 100%">
+            <div class="center_field"> 
+                
+                    <h1>«КОСТИ»</h1>
+                    <span id="labelhelp">Играющий называет любое число в диапазоне от 2 до 12, ставку, которую он делает в этот ход и «бросает кубик». </br> 
+                    Если сумма выпавших цифр меньше 7 и играющий задумал число меньше 7, он выигрывает сделанную ставку, тоже самое, если больше.</br>
+                    Если играющий угадал сумму цифр, он получает в четыре раза больше очков, чем сделанная ставка.</br>
+                    Ставка проиграна, если не произошла ни одна из описанных ситуаций.</br>
+                    В начальный момент у играющего 100 очков.
+
+                    </span>
+                    </div>
+                </div>
+        <div class="loginform">
+            <div class="lform">
+                <div>Игрок 1</div>
+                <input id="input_user1" type="text" value="" placeholder = "Введите имя игрока"></input>
+                <div>Игрок 2</div>
+                <input id="input_user2" type="text" value="" placeholder = "Введите имя игрока"></input>
+            </div>
+            <br/>
+            <button id="button_join" onclick="getName();">Начать!</button>
+        </p>
+            <div id="error_text" style="color: red">&nbsp;</div>
+            
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+<script>
+    function isEmpty(str) {
+   return (typeof str === "undefined" || str === null || str ===  "");
+}
+    let getName = () =>{
+        let user1 = document.getElementById('input_user1').value;
+        let user2 = document.getElementById('input_user2').value;
+        if(!isEmpty(user1) || !isEmpty(user2)){
+        name1 = document.getElementById('input_user1').value;
+        name2 = document.getElementById('input_user2').value;
+        localStorage.setItem('name1', name1);
+        localStorage.setItem('name2', name2);
+        document.location.href = './kubick.html';
+        }
+    }
+</script>
+</body>
+</html>

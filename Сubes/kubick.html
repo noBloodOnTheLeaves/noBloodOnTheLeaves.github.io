@@ -1,0 +1,403 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="DnD, dangeon and dragons, roleplay, dice, roller, 3D, RPG, wargame"/>
+<meta name="description" content="Online 3D dice roller"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style type="text/css">@import "./css/main.css";</style>
+<style type="text/css">@import "./css/dice.css";</style>
+<style>
+    #canvas-container {
+    position: relative;
+    overflow: auto;
+}
+#canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index: -1;
+}
+#img1{
+    width: 180px;
+    z-index: 5;
+
+    
+}
+#img2{
+    width: 180px;
+    z-index: 5;
+    
+}
+#name1{
+    height: 50%;
+    z-index: 5; 
+    margin-left: 20px;
+    margin-top: -5px;
+}
+#name2{
+    height: 50%;
+    z-index: 5;
+    margin-left: 20px;
+    margin-top: -10px;
+}
+.flex1 {
+ display: flex;
+ flex-direction:column;
+ justify-content:flex-start;
+ flex-wrap: nowrap;
+ text-align: center;
+}
+.flex2 {
+ display: flex;
+ flex-direction:column; 
+ justify-content:flex-end;
+ flex-wrap: nowrap;
+ text-align: center;
+}
+.flex-center{
+    display: flex;
+    background: rgba(0, 0, 255, .1);
+    height: 100%;
+    z-index: 300000;
+}
+#flex{
+    visibility:visible;
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#points1, #points2{
+    font-size: 30pt;
+    text-align: center;
+    color: rgba(21, 26, 26, 0.5);
+    bottom: 50px;
+}
+
+input{
+align-self: center;
+border-radius: 30px;
+width: 65px;
+margin-left: 15px;
+padding: 7px;
+color: black;
+text-align: center;
+    
+
+}
+input:nth-child(2){
+    width: 70px;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 25%; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*.modal-body {padding: 2px 16px;}*/
+.ml15 {
+  font-weight: 800;
+  font-size: 3.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.ml15 .word {
+  display: inline-block;
+  line-height: 1em;
+  text-align: center;
+  color: aliceblue;
+
+}
+
+
+
+</style>
+</head>
+
+<body style="margin: 0">
+    
+      
+    <div id="control_panel" class="control_panel" >
+         <!-- Players -->
+            <div id = "flex">
+            <div class="flex1">
+                <img src="./images/avatar.png" alt="Avatar" id="img1" />
+                <h1 id="name1">Игрок 1</h1>
+                <span id="points1">100</span>
+                <div>
+                <input  min="2" max="12" maxlength= "2" placeholder="Число" id="Число1" onkeypress='validate(event)'required>
+                <input  maxlength= "2" placeholder="Ставка" id="Ставка1"  onkeypress='validate(event)'>
+            </div>
+            </div>
+            <div class="flex2">
+            <img src="./images/avatar2.png" alt="Avatar" id="img2" />
+            <h1 id="name2">Игрок 2</h1>
+            <span id="points2">100</span>
+            <div>
+                    <input  maxlength= "2" min="2" max="12"  placeholder="Число" id="Число2" onkeypress='validate(event)'required>
+                    <input  maxlength= "2" placeholder="Ставка" id="Ставка2" onkeypress='validate(event)'required>
+            </div>
+            </div>
+        </div>
+        <p id="info_text"><a href="/mdice" style="display: none"></a></p>
+    </div>
+    <div id ="center-conteiner">
+    <div id="info_div" style="display: none">
+        <div class="center_field">
+            
+            <span id="label"></span>
+        </div>
+        
+        <div class="center_field"> 
+            <div class="bottom_field">
+            <span id="labelhelp">Нажмите, чтобы бросить ещё</span>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <div id="myModal" class="modal">
+            <!-- Modal content -->
+            
+            
+            
+              
+                <span class="close"></span>
+                <h1 class="ml15">
+                    <span class="word" id = "Name">Modal Header</span>
+                    <span class="word" id = "Lose">победил</span>
+                </h1>
+                
+              
+           
+          
+          </div>
+    <div id="selector_div" style="display: none">
+        <div id='sumDice' style="display: none;"></div>
+            <div id ="center-conteiner">       
+        <div class="center_field">
+            <div id="sethelp">   
+                Выберите число от 2 до 12, сделайте ставку (не более 100) и бросьте кубики
+            </div>
+        </div>
+        
+          
+        <div class="center_field">
+            <input type="text" id="set" value="2d6" style ="visibility: hidden;"></input><br/>
+            
+            <button style="margin-left: 0.6em" id="throw" onclick='avatars_toggle();' >Бросить</button>
+            
+        </div>
+            </div>
+    </div>
+    <div id="canvas-container">
+    <div id="canvas"></div>
+    </div>
+    <script src="./scripts/three.min.js"></script>
+    <script src="./scripts/cannon.min.js"></script>
+    <script type="text/javascript" src="./scripts/teal.js"></script>
+    <script type="text/javascript" src="./scripts/dice.js"></script>
+    <script type="text/javascript" src="./scripts/main.js"></script>
+    <script type="text/javascript" defer="defer">
+        dice_initialize(document.getElementById('center-conteiner'));
+        
+    </script>
+    <script>
+       
+        let changeName = () =>{
+    
+            let name1 = localStorage.name1;
+            let name2 = localStorage.name2;
+      
+
+            document.getElementById('name1').textContent = name1;
+         
+            document.getElementById('name2').textContent= name2;
+        }
+        changeName();
+        
+        let avatars = document.getElementById('flex');
+        let avatars_toggle = () => {
+            avatars.style.visibility = 'hidden';
+        }
+        let onlyNumbers = (evt) => {
+        let charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) return false;
+        return true;
+        }
+        function validate(evt) {
+        var theEvent = evt || window.event;
+        
+        // Handle paste
+        if (theEvent.type === 'paste') {
+            key = event.clipboardData.getData('text/plain');
+        } else {
+        // Handle key press
+            var key = theEvent.keyCode || theEvent.which;
+            key = String.fromCharCode(key);
+        }
+        var regex = /[0-9]|\./;
+        if(!regex.test(key) ) {
+          theEvent.returnValue = false;
+          if(theEvent.preventDefault) theEvent.preventDefault();
+        }
+        
+    }
+    function isEmpty(str) {
+   return (typeof str === "undefined" || str === null || str ===  "");
+}
+    let get_Value = () =>{
+        let name1 = document.getElementById('name1').textContent;
+        let name2 = document.getElementById('name2').textContent;
+        let points1 = parseInt(document.getElementById('points1').textContent);
+
+        let points2 = parseInt(document.getElementById('points2').textContent);
+
+        let Число1 = parseInt(document.getElementById('Число1').value);
+        let Число2 = parseInt(document.getElementById('Число2').value);
+        let Ставка1 = parseInt(document.getElementById('Ставка1').value);
+        let Ставка2 = parseInt(document.getElementById('Ставка2').value);
+        let sumDice = parseInt(document.getElementById('sumDice').textContent);
+        
+        if(!isEmpty(document.getElementById('Число1').value) && !isEmpty(document.getElementById('Ставка1').value)){
+            if((Число1 >= 7 && sumDice >= 7)||(Число1 < 7 && sumDice < 7 )){
+               document.getElementById('points1').textContent = '' ;
+               document.getElementById('points1').textContent = points1 + Ставка1;
+               document.getElementById('labelhelp').textContent = name1 + ' вигрывает ставку в ' + Ставка1 +  ' очков ' + ' Нажмите, чтобы бросить ещё';
+            }else if(Число1 === sumDice){
+                document.getElementById('points1').textContent = '' ;
+                document.getElementById('points1').textContent = points1 + Ставка1 * 4;
+                document.getElementById('labelhelp').textContent = name1 + ' угадал число и получает в 4 раза больше '  + ' Нажмите, чтобы бросить ещё';
+            } else {
+                document.getElementById('points1').textContent = '' ;
+                document.getElementById('points1').textContent = points1 - Ставка1;
+            
+            }
+        }
+        
+            if(parseInt(document.getElementById('points1').textContent) <= 0){
+                document.getElementById('Name').textContent = name2;
+                openModal();
+                anime.timeline({loop: false})
+                    .add({
+                       targets: '.ml15 .word',
+                       scale: [14,1],
+                       opacity: [0,1],
+                                      easing: "easeOutCirc",
+                      duration: 800,
+                      delay: (el, i) => 800 * i
+                    }) 
+            }
+            
+            if(!isEmpty(document.getElementById('Число2').value) && !isEmpty(document.getElementById('Ставка2').value)){
+            if((Число2 >= 7 && sumDice >= 7)|| (Число2 < 7 && sumDice < 7 ) ){
+                document.getElementById('points2').textContent = '' ;
+                document.getElementById('points2').textContent = points2 + Ставка2; 
+                document.getElementById('labelhelp').textContent = name2 + ' вигрывает ставку в ' + Ставка2  + ' очков ' +' Нажмите, чтобы бросить ещё';
+            }else if(Число2 === sumDice){
+                document.getElementById('points2').textContent = '' ;
+                document.getElementById('points2').textContent = points2 + Ставка2 * 4;
+                document.getElementById('labelhelp').textContent = name2 + ' угадал число и получает в 4 раза больше '  + ' Нажмите, чтобы бросить ещё';
+            } else {
+                document.getElementById('points2').textContent = '' ;
+                document.getElementById('points2').textContent = points2 - Ставка2;
+               
+            }
+            }
+            if(parseInt(document.getElementById('points2').textContent) <= 0){
+                document.getElementById('Name').textContent = name1;
+                openModal();
+                anime.timeline({loop: false})
+                    .add({
+                       targets: '.ml15 .word',
+                       scale: [14,1],
+                       opacity: [0,1],
+                                      easing: "easeOutCirc",
+                      duration: 800,
+                      delay: (el, i) => 800 * i
+                    })   
+            }
+
+
+    }
+    // Get the modal
+        var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+        let openModal = () => {
+            modal.style.display = "block";
+            modal.style.zIndex = "9999999";
+        }
+
+// When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+          modal.style.zIndex = "-9999999";
+          document.location.href = './index.html';
+        }
+
+// When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+            modal.style.zIndex = "-9999999";
+            document.location.href = './index.html';
+          }
+        }
+    
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+        
+      
+    </body>
+</html>
