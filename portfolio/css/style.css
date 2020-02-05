@@ -1,0 +1,223 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background: rgba(32, 32, 45, 1);  
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+.hero{
+    padding-top: 50px;
+    padding-bottom: 145px;
+    background: linear-gradient(0deg, #000000 -3.44%, rgba(0, 0, 0, 0) 91.99%);
+    
+}
+.container{
+    max-width: 945px;
+    margin: auto;
+   
+}
+.hero-header{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.links{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.links img{
+    margin-left: 20px;
+    width: 17.27px;
+    height: 20px;
+}
+.hero-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 105px;
+    
+}
+.hero-text{
+   
+    font-style: normal;
+    color: #FFFFFF;
+    
+}
+.hero-text span{
+    font-weight: normal;
+    font-size: 24px; 
+    color: #FFBB01;
+}
+.hero-text h1{
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 59px;
+    margin-top: 16px;
+}
+
+.hero-text p{
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    width: 420px;
+
+}
+
+.hero-button{
+    background: linear-gradient(180deg, #FDDE76 0%, #FFBB01 100%);
+    box-shadow: 0px 4px 0px #B68500;
+    border-radius: 5px 5px 10px 10px;
+    font-size: 16px;
+    padding: 24px 42px;
+    border: none;
+    font-weight: bold;
+    margin-top: 32px;
+}
+
+.hero-avatar{
+    width: 389px;
+    height: 389px; 
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    background-image: url(../img/avatar/avatar.jpg);
+    background-repeat: no-repeat;
+    background-position: center top -60px;
+    background-size: 120%;
+    border: 3px solid #FFFFFF;
+}
+/* features */
+.features, footer{
+    background-color: black;
+    color: #FFFFFF;
+}
+.features-blocks{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+}
+.features-block{
+    flex-basis: 30%;
+    margin-bottom: 63px;
+}
+h2 {
+    margin-top: 0px;
+    margin-bottom: 84px;
+}
+h3{
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px; 
+}
+
+/* contact */
+footer{
+    background: rgba(32, 32, 45, 1);  
+}
+.contacts-block{
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    
+}
+.form-bg{
+  align-items: center;
+  text-align: center;
+  background: #FFFFFF;
+  box-shadow: -5px 5px 0px #FFC41D;
+  border-radius: 5px;
+  flex-basis:50%; 
+  padding: 30px; 
+}
+.form-bg h5{
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 28px;
+    color: #000000;
+    margin-top: 20px;
+    margin-bottom: 29px;
+}
+.form-bg input{
+    background: #F8F8F8;
+    box-shadow: inset 0px 3px 10px rgba(199, 199, 199, 0.25);
+    border-radius: 5px;
+    width: 309px;
+    height: 63px;
+    margin-bottom: 17px;
+}
+.formbutton{
+    width: 309px;
+    height: 66px;
+    background: linear-gradient(180deg, #FDDE76 0%, #FFBB01 100%);
+    box-shadow: 0px 4px 0px #B68500;
+    border-radius: 5px 5px 10px 10px;  
+    border: none;
+    font-weight: bold; 
+}
+.form-bg input[type="text"] {
+    padding: 18px;
+    padding-left: 49px;
+    color: #949494;
+}
+.conacts-data{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex: 50% 50% 100%;
+    width: 348px;
+    height: 177px;
+}
+
+.conacts-data a{
+    line-height: 19px;
+    width: 348px;
+    height: 177px;
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.conacts-data h4{
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    margin: 0; 
+}
+
+.mail, .phone{
+    display: flex;
+    flex-wrap: wrap;
+    width: 130px;
+    height: 62px;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+
+
+
+.input-phone[type="text"]{
+    background: url("/img/contacts/phone-icon.svg") no-repeat scroll 23px 23px;
+    padding: 23px;
+}
+.input-user[type="text"]{
+    background: url("/img/contacts/user-icon.svg") no-repeat scroll 23px 23px;
+    padding: 23px; 
+}
+.contact-text{
+    display: flex;
+    flex-wrap: wrap;
+    width: 348px;
+    height: 328px;
+}
+.contact-block h2{
+    width: 100%;
+    display: block;
+    width: 337px;
+    height: 42px;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+}
