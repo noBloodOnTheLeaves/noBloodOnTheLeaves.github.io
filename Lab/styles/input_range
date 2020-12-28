@@ -1,0 +1,31 @@
+.resistor{
+  width:600px;
+}
+.resistor:focus{
+  outline: none;
+  color: green;
+}
+.resistor::-moz-range-thumb {
+  background: #ecf0f1;
+  border: 2px solid #bdc3c7;
+  width: 10px;
+  height: 20px;
+  border-radius: 0;
+  cursor: pointer;
+}
+.resistor::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #ecf0f1;
+  border: 2px solid #bdc3c7;
+  width: 10px;
+  height: 20px;
+  /*border-radius: 10px;*/
+  cursor: pointer;
+
+}
+.resistor::-moz-range-track {
+  border-radius: 8px;
+  height: 5px;
+  border: 2px solid #bdc3c7;
+  background-color: #fff;
+}
