@@ -1,0 +1,1 @@
+"use strict";function graph(t){var h=[],n=[],i=t.getContext("2d"),e=null,o=null;i.width=300,i.height=100,this.add=function(t,i){h.push(t),n.push(i)},this.draw=function(){e=0,o=0,i.moveTo(h[0]-e,n[0]-o);for(var t=0;t<h.length;t++)i.lineTo(100*h[t]-e,i.height-10*n[t]-o);i.stroke()}}

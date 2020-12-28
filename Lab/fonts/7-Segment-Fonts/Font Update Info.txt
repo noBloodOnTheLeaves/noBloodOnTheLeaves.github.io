@@ -1,0 +1,23 @@
+7 Segment Fonts V1.02; May 13, 2005
+
+I originally created the "7 Segment Fonts" in 2002 and they seemed
+to work fine with the latest version of Windows.
+
+However since finding some users having problems on the more recent
+Windows versions I've had to make corrections.
+
+The problem seemed to be that the "Left-Hand Side" of the characters
+were getting cut off. I've adjusted the "Kerning" ( i.e. the spacing
+between characters ) which seems to have fixed the problem.
+
+They perform OK now ( May 2005 ) using:
+
+Windows XP - SP2
+Microsoft Office Word 2003
+
+However if you experience any other problems please contact me.
+
+Thank you.
+
+Harvey Twyman
+Email: harvey_twyman@yahoo.com
