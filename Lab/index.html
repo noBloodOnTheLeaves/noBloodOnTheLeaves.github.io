@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Снятие основной кривой намагничивания ферромагнетика</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<!--Add to homescreen for Chrome on Android-->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="./images/android-desktop.png">
+<!--Add to homescreen for Safari on iOS-->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Material Design Lite">
+<link rel="apple-touch-icon-precomposed" href="./images/ios-desktop.png">
+<!--Tile icon for Win8 (144x144 + tile color)-->
+<meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#3372DF">
+<link rel="shortcut icon" href="./images/favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;amp;lang=ru">
+<link rel="stylesheet" href="./../../../styles/icon.css">
+<link rel="stylesheet" href="./../../../styles/material.deep_purple-pink.min.css">
+<link rel="stylesheet" href="./../../../styles/material_template.css">
+<link rel="stylesheet" href="./../../../styles/labs.css">
+<style>
+  @font-face{
+        font-family:Digital-7;
+        src:url(./../../../fonts/digital-7-mono.woff);
+    }
+.mdl-layout__header {
+    background-image: url('./images/1500372716_metal_foam_in_scanning_electron_microscope_magnification_10x.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+   
+}
+.digital{
+       
+       font-size: 21px;
+       padding: 4px;
+       display: inline-block;
+   }
+
+.laboratory {
+    width: 100%;
+    height: 400px;
+    background-position: 50%;
+    background-image: url('./images/labrotory.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.images{
+  
+  position: relative;
+}
+.img1 {
+    width: 3px;
+    height: 93px;
+    position: relative;
+    top: 0px;
+    left: 150px;
+    z-index: 2;
+    transition-duration: .4s;
+}
+.img2 {
+  width: 50%;
+  height: 50%;
+  z-index: 5
+}
+.line1{
+    width: 2px;
+    height: 20px;
+    position: relative;
+    top: -46px;
+    left: 143px;
+    z-index: 1;
+    transform: rotate(42deg);
+    transition-duration: .4s;
+}
+.line2{
+    width: 2px;
+    height: 30px;
+    position: relative;
+    top: 47px;
+    left: 135px;
+    z-index: 1;
+    transform: rotate(75deg);
+    transition-duration: .4s;
+}
+
+</style>
+</head>
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+            <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+            <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+            <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+                <h3>Снятие основной кривой намагничивания ферромагнетика</h3>
+            </div>
+            <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+            <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+            <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+                <a class="mdl-layout__tab is-active" href="#theory">Теория</a>
+                <a class="mdl-layout__tab" href="#hardware">Эксперимент</a>
+                <a class="mdl-layout__tab" href="/">Вернуться на главную</a>
+            </div>
+        </header>
+<main class="mdl-layout__content">
+<!--______________________Теория____________________-->
+<div class="mdl-layout__tab-panel is-active" id="theory">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+ <div class="mdl-card mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--6-col-phone">
+  <div class="mdl-card__supporting-text">
+   <h2>Теория</h2>
+   <div class="toc">
+    <h4>Содержание</h4>
+    <a href="#theor_target">Цель работы</a>
+    <a href="#theor_total">Описание метода исследования</a>
+    <a href="#exper_hardware">Описание установки</a>
+    <a href="#exper_procedure">Выполнение работы</a>
+    <a href="#additionally_questions">Контрольные вопросы</a>
+    <!-- <a href="#additionally_bibliography">Библиографический список</a> -->
+   </div>
+   <h3 id="theor_target">Цель работы</h3>
+   <p>построение основной кривой намагничивания \(B = f(H)\) и графика зависимости магнитной проницаемости от напряжённости магнитного поля ферромагнетика \(\mu = g(H)\).</p>
+   <p>По отношению к воздействию магнитного поля все вещества делятся на диамагнетики (вода, стекло, кварц), парамагнетики (воздух, алюминий, вольфрам, платина) и ферромагнетики (железо, никель и их многочисленные сплавы, а также соединения). Диамагнетики ослабляют внешнее магнитное поле, а парамагнетики незначительно усиливают его. Ферромагнетики многократно усиливают внешнее магнитное поле, т.е. имеют большую магнитную проницаемость \(\mu\). Ферромагнетики – это кристаллические вещества, в которых магнитные моменты атомов и ионов находятся в состоянии самопроизвольного магнитного упорядочения, причём результирующие магнитные моменты каждого из доменов отличны от нуля. К этому классу веществ относятся также вещества, которые называются ферримагнетики или ферриты.</p>
+  <h5>Магнитное упорядочение атомов</h5>
+   <p>Ферриты – это сложные системы окислов железа с окислами других металлов, чаще всего двухвалентных, это химические соединения типа \(MeO \cdot Fe_2O_3\), где \(\mathrm{Me}\) – атом другого металла (железа, никеля, цинка, марганца и др.). Так как разные вещества имеют разное строение электронных оболочек, то атомные магнитные моменты их отличаются по величине и расположению в пространстве. Получается, что одинаково ориентированные атомные магнитные моменты образуют в кристаллической решётке вещества <u>магнитную подрешётку</u>.Если в кристалле имеются две магнитные подрешётки с равными и антипаралельными суммарными магнитными моментами, то кристалл антиферримагнитен. Магнитные моменты подрешёток (одна подрешётка образована ионами железа, другая – также ионами железа с другой степенью окисления или ионами другого металла) могут быть взаимно не скомпенсированы, тогда кристалл <u>ферримагнитен</u> (рис. 1.1, а).</p> 
+    <div class="big_pic">
+      <img src="./images/mag1.png" alt="Рис. 1.1. Виды магнитного упорядочения атомов: </br> а) ферримагнитное упорядочение \(FeO \cdot Fe_2O_3 \) </br> б) ферримагнитное упорядочение (Fe)" />
+      <span class="sgn">Рис. 1.1. Виды магнитного упорядочения атомов:</br>а) ферримагнитное упорядочение (\(FeO \cdot Fe_2O_3\))</br> ферромагнитное упорядочение (\(Fe\))</span>
+      </div>
+    <p>Такой кристалл имеет спонтанную намагниченность и доменную структуру.</p>
+    <p>Во внешнем магнитном поле ферримагнетик намагничивается подобно ферромагнетику, в котором магнитные моменты атомов ориентированы в одну сторону (рис. 1, б), но остаточная индукция ферритов значительно ниже, чем ферромагнетиков за счёт компенсации магнитных моментов.</p>
+    <p>В силу своей оксидной природы ферриты обладают большим удельным сопротивлением, то есть вихревые токи в них очень маленькие, значит потери на вихревые токи в таком материале тоже маленькие, из-за чего ферриты широко применяются в высокочастотной технике.</p>
+    <p>Ферриты могут быть магнитомягкими и магнитотвёрдыми – это зависит от \(\mathrm{Ме}\):</p>
+    <p>           - магнитотвёрдые – в качестве \(\mathrm{Ме} \) используют кобальт и барий;</p>
+    <p>           - магнитомягкие получаются при использовании в качестве \(\mathrm{Ме} \) лития, марганца, никеля и цинка. В лабораторной работе использован марганеццинковый феррит. Магнитомягкие материалы можно размагнитить в магнитных полях напряжённостью менее 4 \(\mathrm{кА/м}\).</p>
+    <h5>Магнитный гистерезис</h5>
+      <p>Ферромагнетики обладают особыми магнитными свойствами благодаря обменному взаимодействию между атомами, в результате которого возникают области, имеющие пространственно однородное упорядочение магнитных моментов  – домены. В пределах каждого домена ферромагнетик намагничен до насыщения. Направления магнитных моментов для различных доменов различны, так что в отсутствии намагничивающего поля суммарный момент всего ферромагнетика равен нулю, а значит и средняя индукция B также равна нулю (рис. 1.2, а).</p>
+      <div class="big_pic">
+        <img src="./images/mag2.png" alt="Рис. 1.2. Кривая намагничивания" />
+        <span class="sgn">Рис. 1.2. Кривая намагничивания</span>
+        </div>
+        <p>При включении намагничивающего поля энергия доменов оказывается неодинаковой. Она меньше для тех доменов, у которых вектор магнитного момента образует с направлением намагничивающего поля острый угол, и больше в том случае, когда этот угол тупой. Поэтому возникают смещения границ доменов, в результате чего за счет энергетически невыгодных доменов происходит увеличение объёма доменов с благоприятной ориентацией магнитных моментов. Пока намагничивающее поле невелико, смещение границ доменов обратимо и точно следует за изменением поля (рис. 1.2, б). При увеличении поля смещение границ доменов становится необратимым, и энергетически невыгодные домены исчезают (рис. 1.2, в). Если поле увеличивать ещё, то происходит поворот магнитных моментов доменов (рис. 1.2, г). Наконец, в очень сильных полях магнитные моменты всех доменов устанавливаются параллельно намагничивающему полю, ферромагнетик намагничивается до насыщения (рис. 1.2, д).</p>
+        <p>Если размагниченный образец намагнитить до насыщения (т. 1 на рис. 1.3), а затем уменьшать напряжённость \(\mathrm{H}\) намагничивающего поля, то уменьшение индукции \(\mathrm{B}\) в ферромагнетике будет происходить не по первоначальной кривой 0–1, а по кривой 1–2. </p>
+        <div class="big_pic">
+          <img src="./images/mag3.png" alt="Рис. 1.3. Магнитный гистерезис" />
+          <span class="sgn">Рис. 1.3. Магнитный гистерезис</span>
+          </div>
+          <p>В результате, когда \(\mathrm{H}\) станет равной нулю, ферромагнетик сохраняет свою намагниченность, и индукция в нём равна \(\mathrm{B_{ост}}\)  (<b>остаточная индукция</b>). Для дальнейшего размагничивания надо изменить направление \(\vec{H}\)  на противоположное. Уменьшение \(\mathrm{B}\) пойдет по кривой 2–3, и при некотором значении \(H_{коэр}\)  намагниченность ферромагнетика станет равной нулю. Величину  \(H_{коэр}\) называют <b>коэрцитивной силой</b>.</p>
+          <p>Увеличение \(\mathrm{H}\) в том же направлении вновь приведёт к насыщению образца (т. 4 на рис. 1.3). При последующем изменении \(\mathrm{H}\) в обратном направлении индукция \(\mathrm{B}\) будет изменятся в соответствии с кривой 4–5–6–1. В результате получится петлеобразная кривая 1–2–3–4–5–6–1.</p>
+          <p>Таким образом, значение индукции \(\mathrm{B} \) в ферромагнетике определяется не только полем \(\mathrm{H}\), но ещё и зависит от предыдущих состояний намагничивания, причём происходит отставание изменений индукции от изменения напряжённости. Это явление называется <b>магнитным гистерезисом</b>, а петлеобразная кривая – <b>петлей гистерезиса</b>. Она будет предельной, если намагниченность ферромагнетика достигает насыщения (кривая \(1' –2' –3' –4' –5' –6' –1' \)), и будет называться частным циклом, если насыщение не наступило (кривая  ). Частных циклов существует бесконечное множество, все они лежат внутри предельной петли гистерезиса. Верхняя точка каждого частного цикла всегда находится на технической кривой намагничивания.</p>
+          <p>Если образец предварительно был размагничен, то при его намагничивании зависимость \(\mathrm{B}\) от \(\mathrm{H}\) изображается кривой 0–1 и называется <b>основной кривой намагничивания</b>. При уменьшении напряжённости поля \(\mathrm{H}\) (кривая 1–2) изменение магнитной индукции \(\mathrm{B}\) в ферромагнетике будет отставать от изменения \(\mathrm{H}\) (магнитный гистерезис). </p>
+          <p>Нелинейная зависимость \(\mathrm{B}\) от \(\mathrm{H} \) приводит к тому, что магнитная проницаемость  ферромагнетиков также зависит от напряжённости магнитного поля \(\mathrm{H}\) (рис. 1.4).</p>
+          <div class="big_pic">
+            <img src="./images/mag4.png" alt="Рис. 1.4. Зависимость магнитной проницаемости ферромагнетика от напряженности поля" />
+            <span class="sgn">Рис. 1.4. Зависимость магнитной проницаемости ферромагнетика от напряженности поля</span>
+            </div>
+            <div class="formula">
+              <div class="fl">$$\mu = \frac{B}{\mu_0H} \ , \quad \mu_0=4 \pi \cdot 10^{-7} Гн/м$$</div>
+            </div>
+            <p>С увеличением \(\mathrm{H}\) она сначала быстро возрастает, достигая максимума \(\mu max\), затем уменьшается. Следует заметить, что максимальное значение проницаемости достигается несколько раньше, чем насыщение ферромагнетика.</p>
+<h3 id="theor_total">Описание метода исследования</h3>  
+    <p>Впервые полное экспериментальное исследование зависимости \(B = f(H)\) проведено в 1871–1872 гг. профессором Московского университета А.Г. Столетовым. Он показал также, что напряжённость поля внутри ферромагнетика сильно зависит от формы образца и только в случае тороидального (кольцевого) образца, намагничиваемого кольцевой обмоткой, она совпадает с напряжённостью внешнего магнитного поля.</p>
+    <p>В данной работе для получения основной кривой намагничивания используют метод, предложенный А.Г. Столетовым. Он заключается в следующем. На кольце из ферромагнитного материала располагают две обмотки (рис. 1.5): первичная (намагничивающая) содержит \(N_1\) витков, и вторичная (с числом витков \(N_2\)), предназначенная для измерения величины магнитной индукции \(\mathrm{B}\).</p> 
+    <div class="big_pic">
+      <img src="./images/mag5.png" alt="Рис. 1.5. Трансформатор" />
+      <span class="sgn">Рис. 1.5. Трансформатор</span>
+      </div>
+    <p>Напряжённость магнитного поля, которое создаётся в кольцевом сердечнике при протекании по первичной обмотке тока \(I_1\), рассчитывается по формуле</p>
+    <div class="formula">
+      <div class="fl">$$H = I_1 \frac{N_1}{l} = n_1 I_1,  \qquad\qquad\qquad\qquad(1.1)$$</div>
+    </div>
+    <p>где \(n_1 = N_1/l \) , \(l\) – длина средней осевой линии сердечника. Это поле намагничивает кольцо. Магнитный поток в сечении кольца площадью \(S\)</p>
+    <div class="formula">
+      <div class="fl">$$\Phi = BS,  \qquad\qquad\qquad\qquad(1.2)$$</div>
+    </div>
+    <p>При его изменении во вторичной обмотке возникает ЭДС индукции</p>
+    <div class="formula">
+      <div class="fl">$$\mathcal{E}_i = -N_2 \frac{d \Phi}{dt},  \qquad\qquad\qquad\qquad(1.3)$$</div>
+    </div>
+    <p>Изменение магнитного потока достигается изменением направления тока \(I_1\). При этом значение напряжённости поля \(\mathrm{H}\) остается прежним, а изменяется лишь направление линий поля. В результате поток магнитной индукции изменяет от \(+\Phi \) до \(-\Phi \), а приращение потока</p>
+    <div class="formula">
+      <div class="fl">$$\Delta \Phi = -2 \Phi = - 2BS,  \qquad\qquad\qquad\qquad(1.4)$$</div>
+    </div>
+    <p>Если цепь вторичной обмотки замкнуть, то в ней потечёт ток</p>
+    <div class="formula">
+      <div class="fl">$$I_2 = \frac{\mathcal{E}_i}{R} = - \frac{N_2}{R} \frac{d \Phi}{dt},  \qquad\qquad\qquad\qquad(1.5)$$</div>
+    </div>
+    <p>где \(R\) – сопротивление цепи вторичной обмотки.</br>
+      При протекании индукционного тока \(I_2\) в этой цепи протекает заряд \(Q\), величину которого можно рассчитать, используя формулы (1.4), (1.5):
+      </p>
+      <div class="formula">
+        <div class="fl">$$Q = \int_0^t I_2dt = \int_{+\Phi}^{-\Phi} \left(-\frac{N_2}{R} \frac{d\Phi}{dt} \right )dt = -\frac{N_2}{R} \Delta \Phi = 2 \frac{N_2}{R}BS,  \qquad\qquad(1.6)$$</div>
+      </div>
+      <p>Выражая из этого равенства индукцию магнитного поля, получим</p>
+      <div class="formula">
+        <div class="fl">$$B = \frac{QR}{2N_2S},  \qquad\qquad\qquad\qquad(1.7)$$</div>
+      </div>
+      <p>где \(R, \ N_2 \ и \ S \) – величины, постоянные для данной установки.</p>
+      <p>Заряд \(\mathrm{Q}\) измеряют интегратором тока, подключённым к вторичной обмотке. При этом величина заряда, прошедшего через интегратор, пропорциональна показанию вольтметра \(U_{инт}\) </p>
+      <div class="formula">
+        <div class="fl">$$Q = b \cdot U_{инт},  \qquad\qquad\qquad\qquad(1.8)$$</div>
+      </div>
+      <p>где \(b\) – постоянная интегратора; \(U_{инт} \)  – отсчёт по вольтметру.</p>
+      <p>Используя выражения (1.7) и (1.8), можно получить расчётную формулу для индукции магнитного поля в исследуемом кольцевом сердечнике: </p>
+      <div class="formula">
+        <div class="fl">$$B = \frac{bR}{2N_2S} \cdot U_{инт} = k \cdot U_{инт} \ , \ k = \frac{bR}{2N_2S} ,  \qquad\qquad\qquad\qquad(1.9)$$</div>
+      </div>
+      
+
+      
+
+
+
+
+   
+
+    <h3 id="exper_hardware">Описание установки</h3>
+
+    <p><b>Оборудование</b>:источник постоянного напряжения, мультиметры, миниблоки «Ферромагнетик», «Интегратор тока», «Сопротивление».</p>
+
+    <p >Электрическая схема установки показана на рис. 1.6, монтажная – на рис. 1.7.</p>
+    
+    <div class="big_pic">
+            <img src="./images/mag6.png" alt="Рис. 1.6. Электрическая схема:" />
+            <span class="sgn">Рис. 1.6. Электрическая схема:</br>1 – источник постоянного регулируемого напряжения 0 … 15 \(\mathcal{E}\);</br>2 – амперметр;</br> 3 – блок «Сопротивление» 100 Ом;</br>4 – переключатель направления тока в первичной обмотке;</br>5 – тороид с первичной \(N_1\) и \(N_2\) и вторичной обмотками;</br>6 – миниблок «Ферромагнетик»;</br>7 – демпферный ключ;</br>8 – интегратор тока;</br>9 – миниблок «Интегратор тока»;</br></span>
+    </div>
+
+    <div class="big_pic">
+      <img src="./images/mag7.png" alt="Рис. 1.7. Монтажная схема: позиции 2, 3, 6, 9, 10 – см. рис. 1.6" />
+      <span class="sgn">Рис. 1.7. Монтажная схема: позиции 2, 3, 6, 9, 10 – см. рис. 1.6</span>
+    </div>
+    <p>Первичная \(N_1\) и вторичная \(N_2\) обмотки намотаны на ферромагнитный кольцевой сердечник. Первичную обмотку используют для намагничивания ферромагнетика и по её параметрам определяют напряжённость \(\mathrm{H}\) намагничивающего поля. Переключатель 4 служит для изменения направления тока в первичной обмотке с целью перемагничивания сердечника. Резистор \(R_0\) ограничивает ток в обмотке. </p>
+    <p>Вторичная обмотка \(N_2\) предназначена для определения индукции магнитного поля \(\mathrm{B}\) в сердечнике. Интегратор тока 8 служит для измерения заряда \(\mathrm{Q}\), показываемого вольтметром 10 и пропорционального измеряемой величине \(\mathrm{B}\). Так как сердечник изготовлен из магнитомягкого ферромагнетика с малой величиной остаточной индукции \(B_{ост}\) , то для получения основной кривой намагничивания нет необходимости проводить предварительное размагничивание сердечника.</p>
+
+   </div>
+  </div>
+ </section>
+
+ <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+    <div class="mdl-card mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--6-col-phone">
+    <div class="mdl-card__supporting-text">
+    <h2>Дополнительно</h2>
+    <h3 id="additionally_questions">Контрольные вопросы</h3>
+    <ol>
+    <li>Что называется магнитной проницаемостью?</li>
+    <li>Как классифицируются магнетики? </li>
+    <li>Перечислите основные особенности ферромагнетиков. </li>
+    <li>Что такое домены и как ведут они себя при увеличении напряженности внешнего магнитного поля?</li>
+    <li>Объясните явление гистерезиса в ферромагнетиках.</li>
+    <li>Как объяснить наличие остаточной намагниченности?</li>
+    <li>Где применяются материалы с большой остаточной намагниченностью?</li>
+    <li>Каким образом можно размагнитить ферромагнетик?</li>
+    
+    </ol>
+    </div>
+    </div>
+    </section>
+    </div>
+
+  <!--Эксперемент-->
+
+    <div class="mdl-layout__tab-panel" id="hardware">
+        <section class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-card__supporting-text">
+                    <h2>Эксперимент</h2>
+                    <h3 id="exper_hardware">Оборудование</h3>
+
+    <ol>
+      <li>источник постоянного напряжения</li>
+      <li>мультиметры</li>
+      <li>миниблоки «Ферромагнетик»</li>
+      <li>«Интегратор тока»</li>
+      <li>«Сопротивление».</li>
+    </ol>
+    <p style="text-align: center;">Электрическая схема установки показана на рис. 1.6, монтажная – на рис. 1.7.</p>
+    
+    <div class="big_pic">
+            <img src="./images/mag6.png" alt="Рис. 1.6. Электрическая схема:" />
+            <span class="sgn">Рис. 1.6. Электрическая схема:</br>1 – источник постоянного регулируемого напряжения 0 … 15 \(\mathcal{E}\);</br>2 – амперметр;</br> 3 – блок «Сопротивление» 100 Ом;</br>4 – переключатель направления тока в первичной обмотке;</br>5 – тороид с первичной \(N_1\) и \(N_2\) и вторичной обмотками;</br>6 – миниблок «Ферромагнетик»;</br>7 – демпферный ключ;</br>8 – интегратор тока;</br>9 – миниблок «Интегратор тока»;</br></span>
+    </div>
+
+    <div class="big_pic">
+      <img src="./images/mag7.png" alt="Рис. 1.7. Монтажная схема: позиции 2, 3, 6, 9, 10 – см. рис. 1.6" />
+      <span class="sgn">Рис. 1.7. Монтажная схема: позиции 2, 3, 6, 9, 10 – см. рис. 1.6</span>
+    </div>
+    <p>Первичная \(N_1\) и вторичная \(N_2\) обмотки намотаны на ферромагнитный кольцевой сердечник. Первичную обмотку используют для намагничивания ферромагнетика и по её параметрам определяют напряжённость \(\mathrm{H}\) намагничивающего поля. Переключатель 4 служит для изменения направления тока в первичной обмотке с целью перемагничивания сердечника. Резистор \(R_0\) ограничивает ток в обмотке. </p>
+    <p>Вторичная обмотка \(N_2\) предназначена для определения индукции магнитного поля \(\mathrm{B}\) в сердечнике. Интегратор тока 8 служит для измерения заряда \(\mathrm{Q}\), по-казываемого вольтметром 10 и пропорционального измеряемой величине \(\mathrm{B}\). Так как сердечник изготовлен из магнитомягкого ферромагнетика с малой величиной остаточной индукции \(B_{ост}\) , то для получения основной кривой намаг-ничивания нет необходимости проводить предварительное размагничивание сердечника.</p>
+
+
+<h2 id ="exper_procedure">Выполнение работы</h2>
+<ol>
+<li>Заполнить табл. 1.1.</li>
+<li>Ознакомиться с  электрической цепью на монтажной схеме, приведённой на рис. 1.7.
+  На общий вход <b>COM</b> мультиметров 2 и 10 подаётся отрица-тельное напряжение (провод «–» или «\(\bot \)»), на входы \(V \Omega \) и \(\mathrm{mA}\) – положительное напряжение (провод «+»).
+  </li>
+<li>Переключатель  мультиметра 2 (рис. 1.7)  «\(\mathrm{A}\)  <img src= "./images/dots.PNG" align="middle" width="1.5%" height="1.5%">»  устанавливает предел измерения «\(200 \ mA\)», а мультиметра 10 – в положе-ние «\(\mathrm{V}\) <img src= "./images/dots.png" align="middle" width="1.5%" height="1.5%">» устанавливает предел измерения «\(20 \ V\)».</li>
+<li>Используй ползунок <b>Сила тока I</b> установить в первичной обмотке ток <b>приблизительно</b> \(I_1= 6 мА\).</li>
+<li>Удостоверьтесь, что переключатель <b>Направление тока</b> стоит в  <b>левом</b> положение, отмечая одновременно максимальное показание &#9001 \(  U_{1 \ инт}  \)&#9002  вольтметра. Записать его в табл. 1.2.</li>
+<li>Последовательно задавая значения тока с шагом \(2-3 \ мА\) до \( \ 20 мА\), а затем с шагом \(5-10 \ мА\) до \( \ 50 \ мА\), измерить по пп. 5, 6 для каждого тока максимальные показания вольтметра &#9001 \(  U_{1 \ инт}  \)&#9002  и  &#9001 \(  U_{2 \ инт}  \)&#9002 . Результаты занести в табл. 1.2.</li>
+</ol>
+
+<div class="section__text mdl-cell mdl-cell--12-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+    <h5><b>Сила тока \(I \)</b></h5>
+    <div class="range_container">
+        <input class="mdl-slider mdl-js-slider" id="ampr" type="range" min="0" max="50" value="0" step=".005" data-metric="A">
+    </div>
+  </br>
+    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch_1" id = "toggle">
+      <input class="mdl-switch__input" id="switch_1" type="checkbox">
+      <span class="mdl-switch__label" id="switch_1_label">Направление тока</span>
+    </label>
+  </br>
+</br>
+    <div class="images">
+        <img src="./images/palka.png" class = "img1">
+        <img src="./images/strelka.bmp" class = "line1">
+        <img src="./images/strelka.bmp" class = "line2">
+        <img src="./images/shema.png" class = "img2" alt="Рис. 1.7. Монтажная схема: позиции 2, 3, 6, 9, 10 – см. рис. 1.6" />
+       
+      </div>
+  </br>
+</br>
+    <h5><b>Напряжение \(U1\) равно:</b></h5>
+</br>
+    <div>
+    <div class="semisegment_indicator" id="U1"></div>
+    <div class="digital">\(B\)</div>
+    </div>
+</br>
+<h5><b>Напряжение \(U2\) равно:</b></h5>
+</br>
+    <div>
+    <div class="semisegment_indicator" id="U2"></div>
+    <div class="digital">\(B\)</div>
+    </div>
+</br>
+
+
+<h5>Обработка результатов измерений</h5>
+
+<ol>
+    <li>Рассчитать среднее значение &#9001 \(  U_{1 \ инт}  \)&#9002   для каждого тока.</li>
+    <li>Рассчитать константы \(n_1\) и \(k\), необходимые для вычислений величин \(\mathrm{H}\) и \(\mathrm{B}\) по формулам (1.1) и (1.9), используя значения параметров установки и исследуе-мого образца.</li>
+    <li>Для каждого значения тока рассчитать величины H и B по формулам (1.1) и (1.9).</li>
+    <li>Вычислить магнитную проницаемость \(\mu \) по формуле \(\mu = \frac{B}{\mu_0H} \ \)</br> (\(\mu_0 = 4 \Pi \cdot 10^{–7} Гн/м\)) для каждого значения \(\mathrm{H}\). Результаты расчетов записать в табл. 1.2.</li>
+    <li>По данным табл. 1.2 построить основную кривую намагничивания \(B = f(H)\) и график зависимости \(\mu = g(H)\).</li>
+    <li>В выводе по работе отразить особенности формы опытных кривых:</br> a) сопоставить ход кривой намагничивания с положением максимума на графике \(\mu = g(H\));</br>б) сравнить полученные кривые с известными теоретическими и эксперимен-тальными зависимостями.</li>
+</ol>
+
+<h5>Средства измерений и их характеристики</h5>
+<table>
+  <tr>
+   <th>Наименование прибора</th>
+   <th>Предел допускаемой основной относительной 
+       погрешности (в % от измеренного значения)</th>
+  </tr>
+  <tr>
+   <td>Амперметр (2)</td>
+   <td>1,5%</td>
+  </tr>
+  <tr>
+   <td >Вольтметр (10)</td>
+   <td>0,5%</td>
+  </tr>
+</table>
+<p></p>
+<h5>Результаты измерений</h5>
+<table>
+  <tr><td colspan="8">\(b = 2,4 \cdot 10^{–7}Кл/В\),          \(R = 2,5 \ кОм\),         \(N_1 = 100 \ вит.\),          \(N_2 = 100 \ вит. \),         \(l = 5 \ см\),         \(S = 25 \ мм^2\)</td></tr>
+  <tr>
+   <td>\(№\)</td>
+   <td>\(I_1, мA\)</td>
+   <td>\(U_{1 \ инт}, В\)</td>
+   <td>\(U_{2 \ инт}, А/м\)</td>
+   <td> &#9001 \(  U_{1 \ инт}  \)&#9002 </td>
+   <td>\(B, Тл\)</td>
+   <td>\(H, A/м\)</td>
+   <td>\(\mu \)</td>
+  </tr>
+  <tr>
+   <td>1</td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td contenteditable></td>
+    <td contenteditable></td>
+    <td contenteditable></td>
+    <td contenteditable></td>
+    <td contenteditable></td>
+    <td contenteditable></td>
+    <td contenteditable></td>
+   </tr>
+  <tr>
+   <td>...</td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+  </tr>
+  <tr>
+   <td>\(N\)</td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+   <td contenteditable></td>
+  </tr>
+</table>
+</br>
+    
+    <h5>Результаты расчётов</h5>
+    <ol>
+        <li>\(n_1= \dots = \dotsm^{-1} \);</li>
+        <li>\(k= \dots = \dots \frac{Кл \cdot Ом}{B \cdot м^2}\);</li>
+        <li>\(H= \dots = \dots A/м\);</li>
+        <li>\(B= \dots = \dots Тл\);</li>
+        <li>\(\mu= \dots = \dots .\);</li>
+        <li>Вывод.</li>
+        <p><b>Примечание.</b> Построенные согласно табл. 1.2 графики \(B = f(H)\) и \(\mu = g(H)\) прилагаются к отчёту.</p>
+    </ol>
+
+<!--Из эксперемента-->
+
+</div>
+</div>
+</section>
+
+<!--_____________________дополнительно________________-->
+
+
+
+
+
+<!-- Эксперемент по хэшу-->
+  <footer class="mdl-mega-footer" id="main_footer">
+      <div class="mdl-mega-footer--middle-section">
+          <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">Навигация</h1>
+              <ul class="mdl-mega-footer--link-list">
+                  <li>
+                      <a class="tab-button" href="#theory">Теория</a>
+                  </li>
+                  <li>
+                      <a class="tab-button" href="#hardware">Эксперимент</a>
+                  </li>
+              </ul>
+          </div>
+          <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">Важные страницы</h1>
+              <ul class="mdl-mega-footer--link-list">
+                  <li>
+                      <a href="/">Главная</a>
+                  </li>
+                  <li>
+                      <a href="http://oihps.ru/">Сайт интситута</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+</footer>
+<script>
+
+"use strict";
+//Ползунок и выдоваемые значения
+let I = document.getElementById('ampr');
+console.log(I.value);
+const R1 = 100;
+const R2 = 104;
+console.log(R1);
+console.log(R2);
+let U1 = document.getElementById('U1');
+console.log(U1.value);
+let U2 = document.getElementById('U2');
+console.log(U2.value);
+const switch1 = document.getElementById('switch_1');
+   
+      U1.innerHTML= 0.00;
+    
+  
+      U2.innerHTML= '0.00';
+ 
+
+let update = () =>{
+if( U1.innerHTML === 'Infinity'){
+      U1.innerHTML= '&#x221E'; 
+    }
+   if( U2.innerHTML === 'Infinity'){
+      U2.innerHTML= '&#x221E';
+    }
+  if (switch1.checked == false){
+  U1.innerHTML = (I.value * R1 / 1000).toFixed(2); 
+  }else{
+  U2.innerHTML = (I.value * R2 / 1000).toFixed(2);
+  }
+    
+    
+}
+update();
+ampr.addEventListener("input", update);
+
+
+//Направление тока на схеме
+const img1 = document.getElementsByClassName('img1');
+
+const line1 = document.getElementsByClassName('line1');
+const line2 = document.getElementsByClassName('line2');
+
+document.getElementById('toggle').addEventListener('click',() => {
+ 
+  if(switch1.checked == true){
+    img1[0].style.top = '8px';
+    line1[0].style.transform = 'rotate(80deg)';
+    line1[0].style.height = '15px';
+    line1[0].style.top = '-40px';
+    line2[0].style.transform = 'rotate(96deg)';
+    line2[0].style.top = '54px';
+  }else {
+    img1[0].style.top = '0px';
+    line1[0].style.transform = 'rotate(42deg)';
+    line1[0].style.height = '20px';
+    line1[0].style.top = '-46px';
+    line2[0].style.transform = 'rotate(75deg)';
+    line2[0].style.top = '47px';
+    }
+
+});
+
+
+
+</script>
+<script src="./../../../scripts/multimeter.js"></script>
+<script src="./../../../scripts/pribors.js"></script>
+<script src="./../../../hardware.js"></script>
+<script src="./../../../scripts/material.min.js"></script>
+<script src="./../../../scripts/footer.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</main>
+</div>
+</body>
+</html>
