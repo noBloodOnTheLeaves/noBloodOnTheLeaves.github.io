@@ -11,6 +11,6 @@
 * [Игральные кости](https://nobloodontheleaves.github.io/Сubes/) - два игрока бросают кубики
 * [Гоночки](https://nobloodontheleaves.github.io/streetRaceJs/) - 2D гоночки в стиле инди игр
 
-## Sites
-* [Promo site The Witcher](https://nobloodontheleaves.github.io/Withcer/) - сайт Ведьмака
-
+## Sites and web pages
+* [Promo site The Witcher](https://nobloodontheleaves.github.io/Withcer/) - сайт Ведьмака, набросок
+* [Лабораторная по физике](https://nobloodontheleaves.github.io/Lab/) - самые первые мои веб странички
