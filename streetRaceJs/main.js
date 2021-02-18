@@ -65,7 +65,8 @@ let startGame = () => {
     buttons.classList.add('hide');
     changeVolum.classList.remove('hide');
     gameArea.innerHTML = '';
-    gameArea.innerHTML = '<audio src="./music/8bitRace.mp3" autoplay loop volume="30%"></audio>';
+    gameArea.innerHTML = '<audio id="myaudio" src="./music/8bitRace.mp3" autoplay loop ></audio>';
+    document.querySelector('#myaudio').volume = 0.1;
     for (let i = 0; i < getQuantityElements(100); i++){
         const line = document.createElement('div');
         line.classList.add('line');
@@ -157,6 +158,18 @@ let moveEnemy = () => {
   
 }
 
+const musicPlay = () =>{
+    if (changeVolum.src.indexOf('unactive.png')!=-1) {
+        changeVolum.src  = "./image/volume/active.png";
+        document.querySelector('#myaudio').volume = 0.1;
+    }
+     else {
+        changeVolum.src  = "./image/volume/unactive.png";
+        document.querySelector('#myaudio').volume = 0;
+   }
+
+}
+
 let playGame = () =>{
     if(settings.start){
         settings.score += settings.speed;
@@ -194,5 +207,6 @@ easy.addEventListener('click',levelEasy);
 medium.addEventListener('click',levelMedium);
 hard.addEventListener('click',levelHard);
 start.addEventListener('click', startGame);
+changeVolum.addEventListener('click',musicPlay)
 document.addEventListener('keydown', startRun);
 document.addEventListener('keyup', stopRun);
