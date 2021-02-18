@@ -65,7 +65,7 @@ let startGame = () => {
     buttons.classList.add('hide');
     changeVolum.classList.remove('hide');
     gameArea.innerHTML = '';
-    gameArea.innerHTML = '<audio src="./music/8bitRace.mp3" autoplay loop></audio>';
+    gameArea.innerHTML = '<audio src="./music/8bitRace.mp3" autoplay loop volume="30%"></audio>';
     for (let i = 0; i < getQuantityElements(100); i++){
         const line = document.createElement('div');
         line.classList.add('line');
