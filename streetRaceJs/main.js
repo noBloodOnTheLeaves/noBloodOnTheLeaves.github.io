@@ -38,8 +38,7 @@ let levelEasy = () => {
     settings.traffic = 3;
     console.log('easy');
 }
-let pageY = 0;
-let pageX = 0;
+
 
 let levelMedium = () => {
     settings.speed = 6;
@@ -196,30 +195,41 @@ let playGame = () =>{
     }
 };
 //доработать
+let pageY = 0;
+let pageX = 0;
+let mouseDown = 0;
 let mouseControl = () =>{
-    console.log(document.body.onmousemove);
-                console.log('нажал');
-                document.body.onmousemove((event) => {
-                    if (pageY) {
-                        if (event.pageX > pageX && settings.x > 0) {
-                            settings.x -= settings.speed;
-                            console.log('вправо');
-                        } else if (event.pageX < pageX  && settings.x < (gameArea.offsetWidth - car.offsetWidth)) {
-                            settings.x += settings.speed;
-                            console.log('влево');
-                        } else if (event.pageY < pageY && settings.y < (gameArea.offsetHeight - car.offsetHeight)) {
-                            settings.y += settings.speed;
-                            console.log('вниз');
-                        } else if (event.pageY > pageY ){
-                            settings.y -= settings.speed;
-                            console.log('вверх');
-                        }
-                    }
-                    pageX = event.pageX;
-                    pageY = event.pageY;
-                });
-                
+    document.body.onmousedown = () =>{
+        mouseDown++;
+    }
+    document.body.onmouseup = () =>{
+        mouseDown--;
+    }
+    document.addEventListener('mousemove', (event) => {
+        if(mouseDown === 0) {
+            if (pageY) {
+                if (event.pageX > pageX /*&& settings.x > 0*/) {
+                    settings.x += settings.speed;
+                    console.log('вправо');
+                } else if (event.pageX < pageX  /*&& settings.x < (gameArea.offsetWidth - car.offsetWidth)*/) {
+                    settings.x -= settings.speed;
+                    console.log('влево');
+                } else if (event.pageY < pageY /*&& settings.y < (gameArea.offsetHeight - car.offsetHeight)*/) {
+                    settings.y -= settings.speed;
+                    console.log('вверх');
+                } else if (event.pageY > pageY ){
+                   settings.y += settings.speed;
+                   console.log('вниз');
+                    
+                }
+            }
+        }
+        
+        pageX = event.pageX;
+        pageY = event.pageY;
+    });        
 }
+
 //
 let startRun = (event) =>{
     event.preventDefault();
